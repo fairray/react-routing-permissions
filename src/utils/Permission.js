@@ -4,11 +4,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 const Permission = (Component) => {
-  const role = 'admin'; // fake
   const AuthHOC = (props) => {
-    const { permission } = props;
-    const access = permission.includes(role);
-    return (props.isLoggedIn && access ?
+    const { permission, isLoggedIn, user } = props;
+    const access = permission.includes(user.role);
+    return (isLoggedIn && access ?
       (
         <Component {...props} />
       ) : (
@@ -23,6 +22,7 @@ const Permission = (Component) => {
   function mapStateToProps(state) {
     return {
       isLoggedIn: state.auth.isLoggedIn,
+      user: state.auth.user
     };
   }
   return connect(mapStateToProps)(AuthHOC);

@@ -14,6 +14,12 @@ const Header = () => (
           <li><Link to="/user/statistics">User statistics</Link></li>
         </ul>
       </li>
+      <li><Link to="/dashboard">Dashboard</Link></li>
+      <li>
+        <ul>
+          <li><Link to="/dashboard/info">Dashboard info</Link></li>
+        </ul>
+      </li>
       <li><Link to="/login">Login</Link></li>
     </ul>
   </div>
