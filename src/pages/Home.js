@@ -1,10 +1,13 @@
 import React from 'react';
+import DefaultLayout from '../layouts/DefaultLayout';
 // import PropTypes from 'prop-types';
 
 const Home = () => (
-  <div>
-        Home page
-  </div>
+  <DefaultLayout>
+    <div>
+      Home page
+    </div>
+  </DefaultLayout>
 );
 
 export default Home;

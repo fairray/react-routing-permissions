@@ -1,14 +1,28 @@
-export const LOGIN_AUTH_SUCCESS = 'LOGIN_AUTH_SUCCESS';
-export const LOGIN_AUTH_FAILER = 'LOGIN_AUTH_FAILER';
+import {LOGIN_AUTH_REQUEST, LOGIN_AUTH_SUCCESS, LOGIN_AUTH_FAILER} from '../constants/auth';
+import { successUser, failerUser } from './user';
+import { getUser } from '../services/userService';
+
+export const requestAuth = () => {
+  return ({type: LOGIN_AUTH_REQUEST})
+}
+
+export const successAuth = () => {
+  return ({type: LOGIN_AUTH_SUCCESS})
+}
+
+export const failerAuth = () => {
+  return ({type: LOGIN_AUTH_FAILER})
+}
+
 export const login = () => (dispatch) => {
-  setTimeout(() => {
+  dispatch(requestAuth());
+  return getUser().then((user) => {
     localStorage.setItem('token', 'secret_token');
-    dispatch({
-      type: LOGIN_AUTH_SUCCESS,
-      payload: {
-        name: 'test',
-        role: 'admin',
-      },
-    });
-  }, 1000);
+    dispatch(successUser(user));
+    dispatch(successAuth());
+  }).catch(err => {
+    dispatch(failerAuth());
+    dispatch(failerUser());
+    console.log(err);
+  });
 };

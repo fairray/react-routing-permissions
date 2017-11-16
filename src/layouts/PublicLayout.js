@@ -1,25 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Route } from 'react-router-dom';
-import Main from '../components/Main';
+import {Container} from 'semantic-ui-react';
 import Footer from '../components/Footer';
 
-const PublicLayout = ({ component: Component, ...rest }) => (
-  <Route
-    {...rest}
-    render={props => (
-      <div>
-        <Main>
-          <Component {...props} />
-        </Main>
-        <Footer />
-      </div>)
-} />);
-
-
+const PublicLayout = ({children}) => (
+  <Container fluid style={{height: 'calc(100% - 85px)'}}>
+    {children}
+    <Footer/>
+  </Container>
+);
 PublicLayout.propTypes = {
-  component: PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired
 };
-
 
 export default PublicLayout;
