@@ -4,7 +4,7 @@ import {Container, Segment} from 'semantic-ui-react';
 
 const Footer = () => (
   <Container fluid>
-    <Segment inverted style={{borderRadius:'0'}}>
+    <Segment style={{borderRadius:'0'}}>
       footer Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque gravida
       facilisis velit, non consectetur arcu euismod eget. Vestibulum ante ipsum primis
       in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent sem orci,

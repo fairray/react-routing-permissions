@@ -6,7 +6,6 @@ import {
   Form,
   Grid,
   Header,
-  Image,
   Message,
   Segment
 } from 'semantic-ui-react';
@@ -50,7 +49,7 @@ class LoginPage extends Component {
             </Form>
             <Message>
               New to us?
-              <a href='#'>Sign Up</a>
+              <a href='/singup'>Sign Up</a>
             </Message>
           </Grid.Column>
         </Grid>

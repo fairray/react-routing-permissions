@@ -1,11 +1,5 @@
 import React, {Component} from 'react';
-import {
-  Sidebar,
-  Container,
-  Segment,
-  Menu,
-  Icon,
-} from 'semantic-ui-react';
+import {Sidebar, Container, Segment, Menu, Icon} from 'semantic-ui-react';
 // import PropTypes from 'prop-types';
 
 class SidebarLeft extends Component {
@@ -19,8 +13,7 @@ class SidebarLeft extends Component {
           width='thin'
           visible={visible}
           icon='labeled'
-          vertical
-          inverted>
+          vertical>
           <Menu.Item name='home'>
             <Icon name='home'/>
             Home
@@ -34,7 +27,11 @@ class SidebarLeft extends Component {
             Channels
           </Menu.Item>
         </Sidebar>
-        <Sidebar.Pusher style={{maxHeight:"100%", overflowY:"auto"}}>
+        <Sidebar.Pusher
+          style={{
+          maxHeight: "100%",
+          overflowY: "auto"
+        }}>
           <Segment basic>
             {this.props.children}
           </Segment>

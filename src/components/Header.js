@@ -9,9 +9,9 @@ const HeaderComponent = ({templateActions, sidebarIsOpened}) => {
       : templateActions.openSidebar();
   }
   return (
-    <Menu fixed='top' inverted>
+    <Menu fixed='top'>
       <Menu.Item>
-        <Button secondary toggle icon='sidebar' onClick={toggleVisibility}/>
+        <Button toggle icon='sidebar' onClick={toggleVisibility}/>
       </Menu.Item>
       <Menu.Item>
         Project Name

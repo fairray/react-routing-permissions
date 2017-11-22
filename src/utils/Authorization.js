@@ -2,15 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
-import Spinner from '../components/Spinner';
 
 const Authorization = (allowedRoles) => {
   return (WrappedComponent) => {
     const WithAuthorization = props => {
-      const {isLoggedIn, user, isFetching} = props; 
-      if (isFetching){
-        return <Spinner/>;
-      }
+      const {isLoggedIn, user} = props; 
       if (!isLoggedIn){
         return <Redirect to="/login"/>;
       }
@@ -27,7 +23,6 @@ const Authorization = (allowedRoles) => {
       return {
         isLoggedIn: state.auth.isLoggedIn,
         user: state.user,
-        isFetching: state.auth.isFetching
       }
     })(WithAuthorization);
   }

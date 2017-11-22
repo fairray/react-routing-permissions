@@ -1,8 +1,15 @@
-import React from 'react';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import RootRoutes from '../routes/RootRoutes';
+import Spinner from '../components/Spinner';
 
-const App = () => (
-  <RootRoutes />
-);
+class App extends Component {
+  render() {
+    const {isFetching} = this.props;
+    return isFetching
+      ? <Spinner/>
+      : <RootRoutes/>
+  }
+}
 
-export default App;
+export default connect((state) => ({isFetching: state.auth.isFetching}))(App);

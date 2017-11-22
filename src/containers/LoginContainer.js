@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import PropTypes from 'prop-types';
 import {login} from '../actions/auth';
-import Spinner from '../components/Spinner';
 import LoginPage from '../pages/LoginPage';
 
 class Login extends Component {
@@ -12,10 +11,7 @@ class Login extends Component {
     login: PropTypes.func.isRequired
   }
   render() {
-    const { isLoggedIn, isFetching} = this.props;
-     if ( isFetching ) {
-        return <Spinner/>
-      }
+    const { isLoggedIn} = this.props;
      if (isLoggedIn) {
        return <Redirect to="/" />
      }
@@ -24,7 +20,7 @@ class Login extends Component {
 }
 
 function mapStateToProps(state) {
-  return { isLoggedIn: state.auth.isLoggedIn, isFetching: state.auth.isFetching};
+  return { isLoggedIn: state.auth.isLoggedIn };
 }
 
 function mapDispatchToProps(dispatch) {
